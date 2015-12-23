@@ -116,7 +116,7 @@ public class TitanClass implements CommandExecutor, Listener {
 				titanmode.add(p);
 				p.addPotionEffect(new PotionEffect(
 						PotionEffectType.DAMAGE_RESISTANCE, 200, 1));
-				p.sendMessage("§a§l!! §7You are now invinceible for 10 seconds!");
+				p.sendMessage("§a§l!! §7You are now invincible for 10 seconds!");
 				ItemStack n = i;
 				ItemMeta m = n.getItemMeta();
 				m.setDisplayName("§c§lTitan Mode - Needs Recharging");

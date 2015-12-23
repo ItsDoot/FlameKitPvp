@@ -427,7 +427,7 @@ public class PrestigeClass implements CommandExecutor, Listener {
 						b.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL,
 								2);
 						ItemStack prestigeSpeed = new ItemStack(
-								Material.FEATHER, 2);
+								Material.FEATHER, 1);
 						ItemMeta fm = prestigeSpeed.getItemMeta();
 						fm.setDisplayName(ChatColor.RED + "Prestige Effects");
 						ArrayList<String> fl = new ArrayList<String>();
@@ -486,7 +486,7 @@ public class PrestigeClass implements CommandExecutor, Listener {
 						b.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL,
 								3);
 						ItemStack prestigeSpeed = new ItemStack(
-								Material.FEATHER, 2);
+								Material.FEATHER, 1);
 						ItemMeta fm = prestigeSpeed.getItemMeta();
 						fm.setDisplayName(ChatColor.RED + "Prestige Effects");
 						ArrayList<String> fl = new ArrayList<String>();
@@ -545,7 +545,7 @@ public class PrestigeClass implements CommandExecutor, Listener {
 						b.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL,
 								3);
 						ItemStack prestigeSpeed = new ItemStack(
-								Material.FEATHER, 3);
+								Material.FEATHER, 1);
 						ItemMeta fm = prestigeSpeed.getItemMeta();
 						fm.setDisplayName(ChatColor.RED + "Prestige Effects");
 						ArrayList<String> fl = new ArrayList<String>();
@@ -605,7 +605,7 @@ public class PrestigeClass implements CommandExecutor, Listener {
 						// b.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL,
 						// 3);
 						ItemStack prestigeSpeed = new ItemStack(
-								Material.FEATHER, 4);
+								Material.FEATHER, 1);
 						ItemMeta fm = prestigeSpeed.getItemMeta();
 						fm.setDisplayName(ChatColor.RED + "Prestige Effects");
 						ArrayList<String> fl = new ArrayList<String>();
