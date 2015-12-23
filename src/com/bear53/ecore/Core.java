@@ -126,6 +126,7 @@ import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 public class Core extends JavaPlugin implements Listener {
 
 	public static Core instance;
+	public static PermissionSettings ps;
 	public MessageListener ml;
 	public String[] servers = null;
 
@@ -152,6 +153,7 @@ public class Core extends JavaPlugin implements Listener {
 	}
 
 	public void onEnable() {
+		ps = new PermissionSettings();
 		PermissionSettings.getInstance().setupPermissions(this);
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord",
@@ -666,7 +668,9 @@ public class Core extends JavaPlugin implements Listener {
 												.get(Core.this.broadcastnumber - 1));
 						Core.this.reloadConfig();
 						Bukkit.getServer().broadcastMessage(message);
-
+						for (Player p : Bukkit.getOnlinePlayers()) {
+							ps.injectPlayer(p);
+						}
 						Core.this.broadcastnumber -= 1;
 					}
 				}, 0L, 60 * time);

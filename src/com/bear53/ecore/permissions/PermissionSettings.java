@@ -21,7 +21,7 @@ public class PermissionSettings {
 	private FileConfiguration config;
 	private File cfile;
 
-	private PermissionSettings() {
+	public PermissionSettings() {
 	}
 
 	private static PermissionSettings instance = new PermissionSettings();
