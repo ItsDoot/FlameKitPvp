@@ -1,0 +1,187 @@
+main: com.bear53.ecore.Core
+version: 2.1.0
+name: FlamePvP
+description: Flame KitPvP!
+author: Bear53
+commands:
+  profilecode:
+    description: get your profile code
+    usage: /<command>
+  archer:
+    description: Select the Archer kit!
+    usage: /<command>
+  ninja:
+    description: Select the Ninja kit!
+    usage: /<command>
+  porcupine:
+    description: Select the Porcupine kit!
+    usage: /<command>
+  pvp:
+    description: Select the Pvp kit!
+    usage: /<command>
+  pyro:
+    description: Select the Pyro kit!
+    usage: /<command>
+  scorpion:
+    description: Select the Scorpion kit!
+    usage: /<command>
+  heavy:
+    description: Select the Heavy kit!
+    usage: /<command>
+  ban:
+    description: Ban a player!
+    usage: /<command>
+  groupset:
+    description: Set a persons group!
+    usage: /<command>
+  mute:
+    description: Mute a player!
+    usage: /<command>
+  unban:
+    description: Unban a player!
+    usage: /<command>
+  unmute:
+    description: Unmute a player!
+    usage: /<command>
+  setspawn:
+    description: Set the spawn!
+    usage: /<command>
+  serverlist:
+    usage: /<command>
+    description: List Active Servers
+  addkit:
+    description: Give a player perm for another kit!
+    usage: /<command>
+  removekit:
+    description: Removes the perm for a kit from a player!
+    usage: /<command>
+  kit:
+    description: Shows you your availiable kits!
+    usage: /<command>
+    aliases: [kits]
+  list:
+    usage: /list
+    description: List the online staff!
+    aliases: [liststaff, elist, online, plist, staff]
+  clearchat:
+    usage: /<command>
+    description: Clear the chat
+    aliases: [cc]
+  killstreak:
+    usage: /<command>
+    description: Show your current kill streak!
+  admin:
+    usage: /<command>
+    description: Enter or exit admin mode!
+  reset:
+    usage: /<command>
+    description: Reset a players stats!
+  report:
+    usage: /<command>
+    description: Report a player!
+  stats:
+    usage: /<command>
+    description: See your stats!
+  clear:
+    usage: /<command>
+    description: Clear your inventory!
+    aliases: [ci, clearinventory, clearinv, erase]
+  spawn:
+    usage: /<command>
+    decription: Teleports you to spawn!
+  skull:
+    usage: /<command>
+    description: Get a skull!
+  msg:
+    usage: /<command>
+    description: Message a player!
+    aliases: [message, wisper, tell, m]
+  r:
+    usage: /<command>
+    description: Reply to a player!
+    aliases: [reply]
+  gmc:
+    usage: /<command>
+    description: gmc
+  gms:
+    usage: /<command>
+    description: gms
+  flamereload:
+    usage: /<command>
+    description: Reload the config
+  rules:
+    usage: /<command>
+    description: Rules
+  alert:
+    usage: /<command>
+    description: broadcast a message to the server!
+    aliases: [broadcast, bcast, announce]
+  titan: 
+    usage: /<command>
+    description: Use the Titan kit!
+  kangaroo:
+    usage: /<command>
+    description: Use the Kangaroo kit!
+  striker: 
+    usage: /<command>
+    description: Use the Striker kit!
+  warrior:
+    usage: /<command>
+    description: Use the Warrior kit!
+  givecoins:
+    usage: /<command>
+    description: Give a player coins!
+    aliases: [addcoins]
+  updatescore:
+    usage: /<command>
+    description: Update the scoreboard!
+    aliases: [update]
+  ping:
+    usage: /<command>
+    description: Ping a player!
+  afk:
+    usage: /<command>
+    description: AFK!
+  sethill:
+    usage: /<command>
+    description: Set the KOTH hill!
+  team:
+        
+    usage: /<command> <args> [optional args]
+        
+    aliases: [teams]
+        
+    description: Use Teams.
+  christmas:
+    usage: /<command>
+    description: The christmas kit!
+  thanksgiving:
+    usage: /<command>
+    description: The Thanksgiving kit!
+  halloween:
+    usage: /<command>
+    description: The Halloween kit!
+  sethg:
+    usage: /<command>
+    description: Set the HG Spawn!
+  setpvp:
+    usage: /<command>
+    description: Set the Pvp Spawn!
+  ghost:
+    usage: /<command>
+    description: The Ghost kit!
+  fisherman:
+    usage: /<command>
+    description: The Fisherman kit!
+  snowman:
+    usage: /<command>
+    description: The snowman kit!
+  thor:
+    usage: /<command>
+    description: thor kit
+  prestige:
+    usage: /<command>
+    description: prestige mode!
+  prestigeclass:
+    usage: /<command>
+    description: prestige kit!

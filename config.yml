@@ -1,0 +1,5 @@
+listLineTop: '&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c&4 &a|&3StaffList&a| &c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-'
+listLineBottom: '&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-&4-&c-'
+playersOnline: '&cThere are currently &4%online% &c/ &4%max% &cplayers online.'
+staffOnline: '&4Online Staff: %players%'
+noStaffOnlineMessage: '&4Online Staff: &cNone!'
