@@ -27,6 +27,9 @@ public class PlayerChatEvent implements Listener {
 
 	@EventHandler
 	public void onPlayerChat(AsyncPlayerChatEvent e) {
+		if (e.getMessage().contains("%")) {
+			e.getMessage().replace("%", "");
+		}
 		if (chatters.contains(e.getPlayer())) {
 			e.setCancelled(true);
 
