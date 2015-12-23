@@ -1,7 +1,5 @@
 package com.bear53.ecore.kitpvp.commands;
 
-import java.util.ArrayList;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -11,12 +9,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import com.bear53.ecore.Core;
 import com.bear53.ecore.kitpvp.KitPvp;
 
-public class ChristmasClass implements CommandExecutor {
+public class ChristmasClass extends ClassBase implements CommandExecutor {
 
 	Core plugin;
 
@@ -37,31 +34,19 @@ public class ChristmasClass implements CommandExecutor {
 							+ ChatColor.DARK_GREEN + "t" + ChatColor.DARK_RED
 							+ "a " + ChatColor.GREEN + "Kit!");
 
-					ItemStack hat = new ItemStack(Material.WOOL, 1, (short) 14);
-					ItemStack c = new ItemStack(Material.IRON_CHESTPLATE);
-					ItemStack l = new ItemStack(Material.IRON_LEGGINGS);
-					ItemStack b = new ItemStack(Material.IRON_BOOTS);
-					ItemStack s = new ItemStack(Material.GOLD_SWORD);
-					s.addEnchantment(Enchantment.FIRE_ASPECT, 2);
-					s.addEnchantment(Enchantment.KNOCKBACK, 1);
-
-					p.getInventory().clear();
 					KitPvp.clearEffects(p);
-					p.getInventory().addItem(new ItemStack[] { s });
-					p.getInventory().setHelmet(hat);
-					p.getInventory().setChestplate(c);
-					p.getInventory().setLeggings(l);
-					p.getInventory().setBoots(b);
-					ItemStack itemshop = new ItemStack(Material.BLAZE_POWDER);
-					ItemMeta shopmeta = itemshop.getItemMeta();
-					shopmeta.setDisplayName(ChatColor.GREEN + "Item Shop");
-					ArrayList<String> shoplore = new ArrayList<String>();
-					shoplore.add(ChatColor.RED
-							+ "Be sure to have space in your inventory!");
-					shopmeta.setLore(shoplore);
-					itemshop.setItemMeta(shopmeta);
-					p.getInventory().setItem(8, itemshop);
+					p.getInventory().clear();
+
+					p.getInventory().setItem(0, getPrimaryWeapon());
+					p.getInventory().setItem(8, getItemShop());
+
+					p.getInventory().setHelmet(getHelmet());
+					p.getInventory().setChestplate(getChestplate());
+					p.getInventory().setLeggings(getLeggings());
+					p.getInventory().setBoots(getBoots());
+
 					p.playSound(p.getLocation(), Sound.LEVEL_UP, 3.0F, 2.0F);
+
 					if (plugin.getConfig().getBoolean("potion-enabled")) {
 						KitPvp.giveHeath(p);
 					} else {
@@ -75,5 +60,37 @@ public class ChristmasClass implements CommandExecutor {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public ItemStack getPrimaryWeapon() {
+		ItemStack s = new ItemStack(Material.GOLD_SWORD);
+		s.addEnchantment(Enchantment.FIRE_ASPECT, 2);
+		s.addEnchantment(Enchantment.KNOCKBACK, 1);
+		return s;
+	}
+
+	@Override
+	public ItemStack getHelmet() {
+		ItemStack hat = new ItemStack(Material.WOOL, 1, (short) 14);
+		return hat;
+	}
+
+	@Override
+	public ItemStack getChestplate() {
+		ItemStack c = new ItemStack(Material.IRON_CHESTPLATE);
+		return c;
+	}
+
+	@Override
+	public ItemStack getLeggings() {
+		ItemStack l = new ItemStack(Material.IRON_LEGGINGS);
+		return l;
+	}
+
+	@Override
+	public ItemStack getBoots() {
+		ItemStack b = new ItemStack(Material.IRON_BOOTS);
+		return b;
 	}
 }
