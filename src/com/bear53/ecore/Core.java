@@ -67,6 +67,7 @@ import com.bear53.ecore.commands.CommandUpdateScore;
 import com.bear53.ecore.duels.Duels;
 import com.bear53.ecore.events.AchievementEvent;
 import com.bear53.ecore.events.BannedLoginEvent;
+import com.bear53.ecore.events.DonorLoginEvent;
 import com.bear53.ecore.events.EntitySpawn;
 import com.bear53.ecore.events.HeadShot;
 import com.bear53.ecore.events.HungerEvent;
@@ -227,6 +228,8 @@ public class Core extends JavaPlugin implements Listener {
 				this);
 		getServer().getPluginManager().registerEvents(new CommandSkull(this),
 				this);
+		getServer().getPluginManager().registerEvents(
+				new DonorLoginEvent(this), this);
 		getServer().getPluginManager().registerEvents(new TitanClass(this),
 				this);
 		getServer().getPluginManager().registerEvents(new InjectEvents(), this);

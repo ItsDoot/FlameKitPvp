@@ -42,7 +42,7 @@ public class HillMoveEvent implements Listener {
 				activePlayer = p.getName();
 				win.put(p.getName(), 0);
 				for (Player online : Bukkit.getOnlinePlayers()) {
-					ActionBar.sendActionbar(online, ChatColor.GRAY + "The "
+					ActionBar.sendActionbar(online, ChatColor.GOLD + "The "
 							+ ChatColor.AQUA + "Castle " + ChatColor.GOLD
 							+ "has been " + ChatColor.AQUA + "captured"
 							+ ChatColor.GOLD + " by " + p.getName());
