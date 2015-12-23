@@ -36,6 +36,14 @@ public class PyroEvent implements Listener {
 		}
 	}
 
+	/*
+	 * @EventHandler public void fb(EntityDamageByEntityEvent e) { if
+	 * (e.getDamager() instanceof Fireball) { Fireball fb = (Fireball)
+	 * e.getDamager(); if (fb.getShooter() instanceof Player) {
+	 * 
+	 * } } }
+	 */
+
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onCreeperExplode(EntityExplodeEvent event) {
 		Entity e = event.getEntity();

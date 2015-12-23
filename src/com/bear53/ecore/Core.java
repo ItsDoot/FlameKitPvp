@@ -113,6 +113,11 @@ import com.bear53.ecore.kitpvp.exceptions.UnloadedPluginException;
 import com.bear53.ecore.koth.CommandSetHill;
 import com.bear53.ecore.koth.HillMoveEvent;
 import com.bear53.ecore.koth.LocationUtils;
+import com.bear53.ecore.permissions.CommandAddPerm;
+import com.bear53.ecore.permissions.CommandListPerm;
+import com.bear53.ecore.permissions.CommandRemovePerm;
+import com.bear53.ecore.permissions.InjectEvents;
+import com.bear53.ecore.permissions.PermissionSettings;
 import com.bear53.ecore.teams.CommandManager;
 import com.bear53.ecore.teams.SettingsManager;
 import com.bear53.ecore.teams.TeamManager;
@@ -147,6 +152,7 @@ public class Core extends JavaPlugin implements Listener {
 	}
 
 	public void onEnable() {
+		PermissionSettings.getInstance().setupPermissions(this);
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord",
 				new MessageListener(this));
@@ -221,6 +227,7 @@ public class Core extends JavaPlugin implements Listener {
 				this);
 		getServer().getPluginManager().registerEvents(new TitanClass(this),
 				this);
+		getServer().getPluginManager().registerEvents(new InjectEvents(), this);
 		getServer().getPluginManager().registerEvents(new KangarooEvent(this),
 				this);
 		getServer().getPluginManager().registerEvents(new HillMoveEvent(this),
@@ -286,6 +293,9 @@ public class Core extends JavaPlugin implements Listener {
 		getCommand("prestige").setExecutor(new CommandPrestige(this));
 		getCommand("prestigeclass").setExecutor(new PrestigeClass(this));
 		getCommand("flamereload").setExecutor(new CommandReload(this));
+		getCommand("addperm").setExecutor(new CommandAddPerm(this));
+		getCommand("removeperm").setExecutor(new CommandRemovePerm(this));
+		getCommand("listperm").setExecutor(new CommandListPerm(this));
 		broadcasts();
 		getLogger().info("|---------------------------------------|");
 		getLogger().info("| KitPvp has successfully been enabled! |");

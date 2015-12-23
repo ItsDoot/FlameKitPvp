@@ -43,7 +43,7 @@ public class HeavyClass implements CommandExecutor {
 							Integer.MAX_VALUE, 1));
 					p.getInventory().clear();
 					p.getInventory().addItem(
-							new ItemStack(Material.DIAMOND_SWORD));
+							new ItemStack(Material.IRON_SWORD));
 					p.getInventory().setHelmet(
 							new ItemStack(Material.DIAMOND_HELMET));
 					p.getInventory().setChestplate(

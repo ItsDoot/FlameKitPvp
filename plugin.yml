@@ -1,6 +1,6 @@
 main: com.bear53.ecore.Core
-version: 2.1.0
-name: FlamePvP
+version: 3.0.0
+name: FlamePvp
 description: Flame KitPvP!
 author: Bear53
 commands:
@@ -42,6 +42,15 @@ commands:
     usage: /<command>
   unmute:
     description: Unmute a player!
+    usage: /<command>
+  addperm:
+    description: add Perms
+    usage: /<command>
+  removeperm:
+    description: remove Perms
+    usage: /<command>
+  listperm:
+    description: List Perms
     usage: /<command>
   setspawn:
     description: Set the spawn!
