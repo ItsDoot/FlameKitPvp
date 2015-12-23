@@ -27,13 +27,13 @@ public class PyroClass implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd,
 			String commandLabel, String[] args) {
 		Player p = (Player) sender;
-		if (commandLabel.equalsIgnoreCase("PyroClass")) {
+		if (commandLabel.equalsIgnoreCase("Pyro")) {
 			if (!KitPvp.activeKit.contains(p.getName())) {
 				if (plugin
 						.getConfig()
 						.getStringList(
 								"players." + p.getUniqueId().toString()
-										+ ".kits").contains("PyroClass")) {
+										+ ".kits").contains("Pyro")) {
 					KitPvp.activeKit.add(p.getName());
 					p.sendMessage(ChatColor.GREEN
 							+ "You have activated the PyroClass Kit!");
