@@ -8,6 +8,7 @@ import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -44,14 +45,30 @@ public class HeavyClass implements CommandExecutor {
 					p.getInventory().clear();
 					p.getInventory().addItem(
 							new ItemStack(Material.IRON_SWORD));
-					p.getInventory().setHelmet(
-							new ItemStack(Material.DIAMOND_HELMET));
-					p.getInventory().setChestplate(
-							new ItemStack(Material.DIAMOND_CHESTPLATE));
-					p.getInventory().setLeggings(
-							new ItemStack(Material.DIAMOND_LEGGINGS));
-					p.getInventory().setBoots(
-							new ItemStack(Material.DIAMOND_BOOTS));
+					
+					ItemStack Chest = new ItemStack(Material.IRON_CHESTPLATE);
+					ItemStack Helm = new ItemStack(Material.DIAMOND_HELMET);
+					ItemStack Legs = new ItemStack(Material.IRON_LEGGINGS);
+					ItemStack Boot = new ItemStack(Material.DIAMOND_BOOTS);
+					
+					Legs.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
+					Chest.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
+					//Boot.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
+					//Helm.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
+					
+					p.getInventory().setHelmet(Helm);
+					p.getInventory().setChestplate(Chest);
+					p.getInventory().setLeggings(Legs);
+					p.getInventory().setBoots(Boot);
+					
+					//p.getInventory().setHelmet(
+					//		new ItemStack(Material.DIAMOND_HELMET));
+					//p.getInventory().setChestplate(
+					//		new ItemStack(Material.DIAMOND_CHESTPLATE));
+					//p.getInventory().setLeggings(
+					//		new ItemStack(Material.DIAMOND_LEGGINGS));
+					//p.getInventory().setBoots(
+					//		new ItemStack(Material.DIAMOND_BOOTS));
 
 					p.playSound(p.getLocation(), Sound.LEVEL_UP, 3.0F, 2.0F);
 					ItemStack itemshop = new ItemStack(Material.BLAZE_POWDER);
