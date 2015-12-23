@@ -1,7 +1,6 @@
 package com.bear53.ecore.events;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.Bukkit;
