@@ -1,6 +1,6 @@
 main: com.bear53.ecore.Core
 version: 3.0.0
-name: FlamePvp
+name: FlamePvP
 description: Flame KitPvP!
 author: Bear53
 commands:
