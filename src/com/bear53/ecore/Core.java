@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import javax.xml.bind.DataBindingException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -299,6 +301,14 @@ public class Core extends JavaPlugin implements Listener {
 		getCommand("removeperm").setExecutor(new CommandRemovePerm(this));
 		getCommand("listperm").setExecutor(new CommandListPerm(this));
 		broadcasts();
+		for (Player p : Bukkit.getOnlinePlayers()) {
+			try {
+				ps.injectPlayer(p);
+				getLogger().info("Enabled, Injected All Player Permissions");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		getLogger().info("|---------------------------------------|");
 		getLogger().info("| KitPvp has successfully been enabled! |");
 		getLogger().info("|---------------------------------------|");
