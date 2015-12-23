@@ -3,6 +3,7 @@ package com.bear53.ecore.kitpvp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -885,24 +886,64 @@ public class KitSelectEvent implements Listener {
 							+ "You have successfully repaired your armor!");
 					if (p.getInventory().getHelmet() != null) {
 						Material old = p.getInventory().getHelmet().getType();
-						ItemStack helm = new ItemStack(old);
-						p.getInventory().setHelmet(helm);
+						if (p.getInventory().getHelmet().getEnchantments()
+								.size() >= 1) {
+							Map<Enchantment, Integer> enchant = p
+									.getInventory().getHelmet()
+									.getEnchantments();
+							ItemStack helm = new ItemStack(old);
+							helm.addEnchantments(enchant);
+							p.getInventory().setHelmet(helm);
+						} else {
+							ItemStack helm = new ItemStack(old);
+							p.getInventory().setHelmet(helm);
+						}
 					}
 					if (p.getInventory().getChestplate() != null) {
 						Material old = p.getInventory().getChestplate()
 								.getType();
-						ItemStack chest = new ItemStack(old);
-						p.getInventory().setChestplate(chest);
+						if (p.getInventory().getChestplate().getEnchantments()
+								.size() >= 1) {
+							Map<Enchantment, Integer> enchant = p
+									.getInventory().getChestplate()
+									.getEnchantments();
+							ItemStack chest = new ItemStack(old);
+							chest.addEnchantments(enchant);
+							p.getInventory().setChestplate(chest);
+						} else {
+							ItemStack chest = new ItemStack(old);
+							p.getInventory().setChestplate(chest);
+						}
 					}
 					if (p.getInventory().getLeggings() != null) {
 						Material old = p.getInventory().getLeggings().getType();
-						ItemStack legs = new ItemStack(old);
-						p.getInventory().setLeggings(legs);
+						if (p.getInventory().getLeggings().getEnchantments()
+								.size() >= 1) {
+							Map<Enchantment, Integer> enchant = p
+									.getInventory().getLeggings()
+									.getEnchantments();
+							ItemStack legs = new ItemStack(old);
+							legs.addEnchantments(enchant);
+							p.getInventory().setLeggings(legs);
+						} else {
+							ItemStack legs = new ItemStack(old);
+							p.getInventory().setLeggings(legs);
+						}
 					}
 					if (p.getInventory().getBoots() != null) {
 						Material old = p.getInventory().getBoots().getType();
-						ItemStack boots = new ItemStack(old);
-						p.getInventory().setBoots(boots);
+						if (p.getInventory().getBoots().getEnchantments()
+								.size() >= 1) {
+							Map<Enchantment, Integer> enchant = p
+									.getInventory().getBoots()
+									.getEnchantments();
+							ItemStack boots = new ItemStack(old);
+							boots.addEnchantments(enchant);
+							p.getInventory().setBoots(boots);
+						} else {
+							ItemStack boots = new ItemStack(old);
+							p.getInventory().setBoots(boots);
+						}
 					}
 					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "update");
 				} else {

@@ -1,12 +1,15 @@
 package com.bear53.ecore.events;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -201,26 +204,67 @@ public class PlayerDie implements Listener {
 					if (killer.getInventory().getHelmet() != null) {
 						Material old = killer.getInventory().getHelmet()
 								.getType();
-						ItemStack helm = new ItemStack(old);
-						killer.getInventory().setHelmet(helm);
+						if (killer.getInventory().getHelmet().getEnchantments()
+								.size() >= 1) {
+							Map<Enchantment, Integer> enchant = killer
+									.getInventory().getHelmet()
+									.getEnchantments();
+							ItemStack helm = new ItemStack(old);
+							helm.addEnchantments(enchant);
+							killer.getInventory().setHelmet(helm);
+						} else {
+							ItemStack helm = new ItemStack(old);
+							killer.getInventory().setHelmet(helm);
+						}
 					}
 					if (killer.getInventory().getChestplate() != null) {
 						Material old = killer.getInventory().getChestplate()
 								.getType();
-						ItemStack chest = new ItemStack(old);
-						killer.getInventory().setChestplate(chest);
+						if (killer.getInventory().getChestplate()
+								.getEnchantments().size() >= 1) {
+							Map<Enchantment, Integer> enchant = killer
+									.getInventory().getChestplate()
+									.getEnchantments();
+							ItemStack chest = new ItemStack(old);
+							chest.addEnchantments(enchant);
+							killer.getInventory().setChestplate(chest);
+							;
+						} else {
+							ItemStack chest = new ItemStack(old);
+							killer.getInventory().setChestplate(chest);
+						}
 					}
 					if (killer.getInventory().getLeggings() != null) {
 						Material old = killer.getInventory().getLeggings()
 								.getType();
-						ItemStack legs = new ItemStack(old);
-						killer.getInventory().setLeggings(legs);
+						if (killer.getInventory().getLeggings()
+								.getEnchantments().size() >= 1) {
+							Map<Enchantment, Integer> enchant = killer
+									.getInventory().getLeggings()
+									.getEnchantments();
+							ItemStack legs = new ItemStack(old);
+							legs.addEnchantments(enchant);
+							killer.getInventory().setLeggings(legs);
+						} else {
+							ItemStack legs = new ItemStack(old);
+							killer.getInventory().setLeggings(legs);
+						}
 					}
 					if (killer.getInventory().getBoots() != null) {
 						Material old = killer.getInventory().getBoots()
 								.getType();
-						ItemStack boots = new ItemStack(old);
-						killer.getInventory().setBoots(boots);
+						if (killer.getInventory().getBoots().getEnchantments()
+								.size() >= 1) {
+							Map<Enchantment, Integer> enchant = killer
+									.getInventory().getBoots()
+									.getEnchantments();
+							ItemStack boots = new ItemStack(old);
+							boots.addEnchantments(enchant);
+							killer.getInventory().setBoots(boots);
+						} else {
+							ItemStack boots = new ItemStack(old);
+							killer.getInventory().setBoots(boots);
+						}
 					}
 
 					/*
