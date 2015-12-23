@@ -9,8 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-import javax.xml.bind.DataBindingException;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -390,6 +388,10 @@ public class Core extends JavaPlugin implements Listener {
 					+ " To the server " + ChatColor.DARK_GRAY + "> "
 					+ ChatColor.GREEN + s + ChatColor.DARK_GRAY + " <");
 			if (getConfig().getInt("totalJoined") % 50 == 0) {
+				Bukkit.broadcastMessage(ChatColor.GREEN
+						+ "We reached a milestone of " + ChatColor.BLUE
+						+ getConfig().getInt("totalJoined") + ChatColor.GREEN
+						+ " unique players!");
 				Bukkit.broadcastMessage(ChatColor.GREEN + "Enjoy "
 						+ ChatColor.YELLOW + "500 " + ChatColor.GOLD + "Coins!");
 			}
