@@ -1,7 +1,7 @@
 package com.bear53.ecore.kitpvp.commands;
 
-import java.util.ArrayList;
-
+import com.bear53.ecore.Core;
+import com.bear53.ecore.kitpvp.KitPvp;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -14,8 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.bear53.ecore.Core;
-import com.bear53.ecore.kitpvp.KitPvp;
+import java.util.ArrayList;
 
 public class GhostClass implements CommandExecutor {
 
@@ -42,8 +41,8 @@ public class GhostClass implements CommandExecutor {
 					sm.setDisplayName(ChatColor.AQUA + "Ghost Ability");
 					p.getInventory().clear();
 					KitPvp.clearEffects(p);
-					p.getInventory().addItem(new ItemStack[] { Sword });
-					p.getInventory().addItem(new ItemStack[] { spade });
+					p.getInventory().addItem(Sword);
+					p.getInventory().addItem(spade);
 					p.getInventory().setHelmet(null);
 					p.getInventory().setChestplate(null);
 					p.getInventory().setLeggings(null);
