@@ -1,7 +1,7 @@
 package com.bear53.ecore.kitpvp.commands;
 
-import java.util.ArrayList;
-
+import com.bear53.ecore.Core;
+import com.bear53.ecore.kitpvp.KitPvp;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -11,55 +11,37 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
-import com.bear53.ecore.Core;
-import com.bear53.ecore.kitpvp.KitPvp;
+public class HalloweenClass extends ClassBase implements CommandExecutor {
 
-public class HalloweenClass implements CommandExecutor {
-
-	Core plugin;
+	private Core plugin;
 
 	public HalloweenClass(Core pl) {
 		this.plugin = pl;
 	}
 
-	public boolean onCommand(CommandSender sender, Command cmd,
-			String commandLabel, String[] args) {
+	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 		Player p = (Player) sender;
 		if (commandLabel.equalsIgnoreCase("halloween")) {
 			if (!KitPvp.activeKit.contains(p.getName())) {
 				if (plugin.getConfig().getBoolean("isHalloween")) {
 					KitPvp.activeKit.add(p.getName());
 					p.sendMessage(ChatColor.GREEN + "You have activated the "
-							+ ChatColor.GOLD + "Halloween " + ChatColor.GREEN
-							+ "Kit!");
+                            + ChatColor.GOLD + "Halloween " + ChatColor.GREEN + "Kit!");
 
-					ItemStack hat = new ItemStack(Material.JACK_O_LANTERN);
-					ItemStack c = new ItemStack(Material.IRON_CHESTPLATE);
-					ItemStack l = new ItemStack(Material.IRON_LEGGINGS);
-					ItemStack b = new ItemStack(Material.IRON_BOOTS);
-					ItemStack s = new ItemStack(Material.GOLD_SWORD);
-					s.addEnchantment(Enchantment.FIRE_ASPECT, 2);
-					s.addEnchantment(Enchantment.KNOCKBACK, 1);
-
+                    KitPvp.clearEffects(p);
 					p.getInventory().clear();
-					KitPvp.clearEffects(p);
-					p.getInventory().addItem(new ItemStack[] { s });
-					p.getInventory().setHelmet(hat);
-					p.getInventory().setChestplate(c);
-					p.getInventory().setLeggings(l);
-					p.getInventory().setBoots(b);
+
+					p.getInventory().setItem(0, getPrimaryWeapon());
+                    p.getInventory().setItem(8, getItemShop());
+
+					p.getInventory().setHelmet(getHelmet());
+					p.getInventory().setChestplate(getChestplate());
+					p.getInventory().setLeggings(getLeggings());
+					p.getInventory().setBoots(getBoots());
+
 					p.playSound(p.getLocation(), Sound.LEVEL_UP, 3.0F, 2.0F);
-					ItemStack itemshop = new ItemStack(Material.BLAZE_POWDER);
-					ItemMeta shopmeta = itemshop.getItemMeta();
-					shopmeta.setDisplayName(ChatColor.GREEN + "Item Shop");
-					ArrayList<String> shoplore = new ArrayList<String>();
-					shoplore.add(ChatColor.RED
-							+ "Be sure to have space in your inventory!");
-					shopmeta.setLore(shoplore);
-					itemshop.setItemMeta(shopmeta);
-					p.getInventory().setItem(8, itemshop);
+
 					if (plugin.getConfig().getBoolean("potion-enabled")) {
 						KitPvp.giveHeath(p);
 					} else {
@@ -74,4 +56,32 @@ public class HalloweenClass implements CommandExecutor {
 		}
 		return true;
 	}
+
+    @Override
+    public ItemStack getPrimaryWeapon() {
+        ItemStack sword = new ItemStack(Material.GOLD_SWORD);
+        sword.addEnchantment(Enchantment.FIRE_ASPECT, 2);
+        sword.addEnchantment(Enchantment.KNOCKBACK, 1);
+        return sword;
+    }
+
+    @Override
+    public ItemStack getHelmet() {
+        return new ItemStack(Material.JACK_O_LANTERN);
+    }
+
+    @Override
+    public ItemStack getChestplate() {
+        return new ItemStack(Material.IRON_CHESTPLATE);
+    }
+
+    @Override
+    public ItemStack getLeggings() {
+        return new ItemStack(Material.IRON_LEGGINGS);
+    }
+
+    @Override
+    public ItemStack getBoots() {
+        return new ItemStack(Material.IRON_BOOTS);
+    }
 }

@@ -55,7 +55,7 @@ public class GhostClass implements CommandExecutor {
 					ItemStack itemshop = new ItemStack(Material.BLAZE_POWDER);
 					ItemMeta shopmeta = itemshop.getItemMeta();
 					shopmeta.setDisplayName(ChatColor.GREEN + "Item Shop");
-					ArrayList<String> shoplore = new ArrayList<String>();
+					ArrayList<String> shoplore = new ArrayList<>();
 					shoplore.add(ChatColor.RED
 							+ "Be sure to have space in your inventory!");
 					shopmeta.setLore(shoplore);
