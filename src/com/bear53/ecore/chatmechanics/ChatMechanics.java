@@ -31,7 +31,6 @@ public class ChatMechanics {
 				}
 			}
 		}
-
 		return false;
 	}
 

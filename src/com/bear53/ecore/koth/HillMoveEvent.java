@@ -41,11 +41,17 @@ public class HillMoveEvent implements Listener {
 			if (win.isEmpty()) {
 				activePlayer = p.getName();
 				win.put(p.getName(), 0);
-				Bukkit.getServer().broadcastMessage(
-						ChatColor.GRAY + "The " + ChatColor.AQUA + "Castle "
-								+ ChatColor.GRAY + "has been " + ChatColor.AQUA
-								+ "captured" + ChatColor.GRAY + " by "
-								+ p.getName());
+				for (Player online : Bukkit.getOnlinePlayers()) {
+					ActionBar.sendActionbar(online, ChatColor.GRAY + "The "
+							+ ChatColor.AQUA + "Castle " + ChatColor.GOLD
+							+ "has been " + ChatColor.AQUA + "captured"
+							+ ChatColor.GOLD + " by " + p.getName());
+				}
+				// Bukkit.getServer().broadcastMessage(
+				// ChatColor.GRAY + "The " + ChatColor.AQUA + "Castle "
+				// + ChatColor.GRAY + "has been " + ChatColor.AQUA
+				// + "captured" + ChatColor.GRAY + " by "
+				// + p.getName());
 				addPoints(p);
 				active = true;
 				this.plugin.locu.capturedWool();
@@ -67,9 +73,14 @@ public class HillMoveEvent implements Listener {
 			win.remove(p.getName());
 			p.sendMessage(ChatColor.RED
 					+ "Left the Castle! You will no longer gain points from it!");
-			Bukkit.getServer().broadcastMessage(
-					ChatColor.GRAY + "The " + ChatColor.AQUA + "Castle "
-							+ ChatColor.GRAY + "has been deserted!");
+			for (Player online : Bukkit.getOnlinePlayers()) {
+				ActionBar.sendActionbar(online, ChatColor.GOLD + "The "
+						+ ChatColor.AQUA + "Castle " + ChatColor.GOLD
+						+ "has been deserted!");
+			}
+			// Bukkit.getServer().broadcastMessage(
+			// ChatColor.GRAY + "The " + ChatColor.AQUA + "Castle "
+			// + ChatColor.GRAY + "has been deserted!");
 			Bukkit.getServer().getScheduler().cancelTask(task1);
 			active = false;
 			activePlayer = "None";
